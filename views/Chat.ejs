@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Chat-Room</title>   
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/customCSS/common.css"> 
+    <link rel="stylesheet" href="/customCSS/home.css">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="icon" href="/background/logo.png">
+
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#" style="color: #fed136;"><img src="/background/logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""> Chat-Room</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                        <a class="nav-link active disabled" href="#">Inbox</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Exit</a>
+                        </li>
+                    </ul>
+                </div>
+    </nav> 
+
+    <div class="container col-12 p-0">
+
+    <div class="chat">
+        <div id="sidebar" class="chat__sidebar">
+
+        </div>
+        <div class="chat__main ">
+            <div id="messages" class="chat__messages"></div>
+
+            <div class="compose">
+                <form id="message-form">
+                    <input name="message" class="form-control" placeholder="@message" required autocomplete="off">
+                    <button class="btn btn-light btn-sm"><img src="/background/send.svg" width="30" height="30"></button>
+                </form>
+                <button class="btn btn-light btn-sm" id="send-location"><img src="/background/google.svg" width="30" height="30"></button>
+            </div>
+        </div>
+    </div>
+
+    <script id="message-template" type="text/html">
+            <div class="message ml-2 mt-0">
+                <p class="p-0 align-bottom mb-1">
+                    <span class="message__name align-bottom p-0">{{username}}</span>
+                    <span class="message__meta align-bottom p-0">{{createdAt}}</span>
+                </p>
+                <div class="bg-light text-dark" style="max-width: 400px;">
+                    <p class="p-2 border border-light rounded">{{message}}</p>
+                </div>
+            </div>
+    </script>
+
+    <script id="location-message-template" type="text/html">
+            <div class="message ml-2 mt-0">
+                <p>
+                    <span class="message__name">{{username}}</span>
+                    <span class="message__meta">{{createdAt}}</span>
+                </p>
+                <div class="bg-light text-dark" style="max-width: 400px;">
+                    <p class="p-2 border border-light rounded"><a href="{{url}}" target="_blank">My current location</a></p>
+                </div>
+            </div>
+        </script>
+
+    <script id="sidebar-template" type="text/html">
+            <h2 class="room-title">{{room}}</h2>
+            <h3 class="list-title">ACTIVE</h3>
+            <ul class="users">
+                {{#users}}
+                    <li><img src="/background/online.png" width="10" height="10"> {{username}}</li>
+                {{/users}}
+            </ul>
+    </script>
+
+   </div>
+
+    <footer class="py-4 bg-dark">
+        <div class="container">
+          <p class="m-0 text-center text-white">Copyright &copy; Chat Room 2019</p>
+        </div>
+    </footer>
+
+    <script src="js/mustache.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/qs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>  
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/AlertScript.js"></script>
+        
+  </body>
+  </html>
+<body>
+    
+    
+   
